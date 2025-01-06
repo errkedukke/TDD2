@@ -4,6 +4,6 @@ public class BerlinClock
 {
     public string GetSecondsLamp(int seconds)
     {
-        throw new NotImplementedException();
+        return seconds % 2 == 0 ? "Y" : "O";
     }
 }
