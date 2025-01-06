@@ -37,4 +37,48 @@ public class BerlinClockTests
         // Assert
         Assert.That(result, Is.EqualTo("O"));
     }
+
+    [Test]
+    public void GetHoursRow1_ShouldReturnCorrectRepresentation()
+    {
+        // Arrange
+        var hours1 = 0;
+        var hours2 = 10;
+        var hours3 = 23;
+
+        // Act
+        var result1 = _berlinClock.GetHoursRow1(hours1);
+        var result2 = _berlinClock.GetHoursRow1(hours2);
+        var result3 = _berlinClock.GetHoursRow1(hours3);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result1, Is.EqualTo("OOOO"));
+            Assert.That(result2, Is.EqualTo("RROO"));
+            Assert.That(result3, Is.EqualTo("RRRR"));
+        });
+    }
+
+    [Test]
+    public void GetHoursRow2_ShouldReturnCorrectRepresentation()
+    {
+        // Arrange
+        var hours1 = 0;
+        var hours2 = 12;
+        var hours3 = 23;
+
+        // Act
+        var result1 = _berlinClock.GetHoursRow2(hours1);
+        var result2 = _berlinClock.GetHoursRow2(hours2);
+        var result3 = _berlinClock.GetHoursRow2(hours3);
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result1, Is.EqualTo("OOOO"));
+            Assert.That(result2, Is.EqualTo("RROO"));
+            Assert.That(result3, Is.EqualTo("RRRO"));
+        });
+    }
 }
